@@ -24,8 +24,11 @@ import {
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 
-// Dynamic imports for 3D and AI components (client-side only)
+// Dynamic imports for 3D and sound components (client-side only)
 const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
+const SoundEffect = dynamic(() => import("@/components/SoundEffect"), {
+  ssr: false,
+});
 
 const navItems = [
   { name: "Home", link: "#home", icon: <IconHome size={18} /> },
@@ -129,6 +132,9 @@ const experiences = [
 export default function Home() {
   return (
     <main className="relative bg-black antialiased">
+      {/* Sound Effect */}
+      <SoundEffect />
+
       {/* Floating Navigation */}
       <FloatingNav navItems={navItems} />
 
