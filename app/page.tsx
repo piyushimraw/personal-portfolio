@@ -22,6 +22,10 @@ import {
   IconCode,
 } from "@tabler/icons-react";
 import { motion } from "motion/react";
+import dynamic from "next/dynamic";
+
+// Dynamic imports for 3D and AI components (client-side only)
+const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
 
 const navItems = [
   { name: "Home", link: "#home", icon: <IconHome size={18} /> },
@@ -133,11 +137,14 @@ export default function Home() {
         id="home"
         className="relative min-h-screen w-full overflow-hidden bg-black/[0.96] bg-grid-white/[0.02] flex items-center justify-center"
       >
+        {/* 3D Scene Background */}
+        <Scene3D />
+
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
           fill="white"
         />
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black/50 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
           <motion.div
@@ -364,7 +371,7 @@ export default function Home() {
             reserved.
           </p>
           <p className="text-sm text-neutral-600">
-            Built with Next.js, Tailwind CSS & Aceternity UI
+            Built with Next.js, R3F, Transformers.js & Aceternity UI
           </p>
         </div>
       </footer>
