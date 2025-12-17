@@ -3,23 +3,20 @@
 # ==========================================
 # Stage 1: Dependencies
 # ==========================================
-FROM node:20-alpine AS deps
-
-# Add libc6-compat for Alpine compatibility
-RUN apk add --no-cache libc6-compat
+FROM oven/bun:1-alpine AS deps
 
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json ./
+COPY package.json bun.lock* ./
 
 # Install dependencies
-RUN npm ci
+RUN bun install --frozen-lockfile
 
 # ==========================================
 # Stage 2: Builder
 # ==========================================
-FROM node:20-alpine AS builder
+FROM oven/bun:1-alpine AS builder
 
 WORKDIR /app
 
@@ -30,13 +27,13 @@ COPY . .
 # Set Next.js to output standalone for production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Build the application
-RUN npm run build
+# Build the application using Bun
+RUN bun run build
 
 # ==========================================
 # Stage 3: Runner (Production)
 # ==========================================
-FROM node:20-alpine AS runner
+FROM oven/bun:1-alpine AS runner
 
 WORKDIR /app
 
@@ -67,5 +64,5 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Start the application
-CMD ["node", "server.js"]
+# Start the application using Bun
+CMD ["bun", "run", "server.js"]
