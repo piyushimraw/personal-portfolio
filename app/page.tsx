@@ -341,7 +341,7 @@ export default function Home() {
 
             <div className="flex items-center justify-center gap-6">
               <a
-                href="https://github.com/piyushrivastava"
+                href="https://github.com/piyushimraw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 transition-all duration-300 hover:border-white/40 hover:bg-white/10"
@@ -349,15 +349,7 @@ export default function Home() {
                 <IconBrandGithub className="h-5 w-5 text-neutral-400 transition-colors group-hover:text-white" />
               </a>
               <a
-                href="https://linkedin.com/in/piyushrivastava"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 transition-all duration-300 hover:border-white/40 hover:bg-white/10"
-              >
-                <IconBrandLinkedin className="h-5 w-5 text-neutral-400 transition-colors group-hover:text-white" />
-              </a>
-              <a
-                href="https://twitter.com/piyushrivastava"
+                href="https://x.com/piyushrivastva"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 transition-all duration-300 hover:border-white/40 hover:bg-white/10"
